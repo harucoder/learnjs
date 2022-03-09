@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script type="text/javascript">
+
+function getToday(){
+	var today = new Date();//空のDateオブジェクト
+	var y = today.getFullYear();
+	var m = today.getMonth();
+	var d = today.getDate();
+	var mydate = y+"年"+m+"月"+d+"日"; 
+
+	var a = document.getElementById("showdate");
+	var ele = document.createElement("h3");
+	var txt = document.createTextNode(mydate);
+
+	a.appendChild(ele);
+	ele.appendChild(txt);
+}
+
+function getNow(){
+	var today= new Date();
+	var t = today.toTimeString();
+
+	var a = document.getElementById("showtime");
+	var ele = document.createElement("h3");
+	var txt = document.createTextNode(t);
+
+	a.appendChild(ele);
+	ele.appendChild(txt);
+}
+
+</script>
+</head>
+<body>
+<div id = "showdate">
+<h1>Show date below:</h1>
+</div>
+<input type="button" value="今日の日付を表示する" onclick="getToday()"/>
+
+<div id="showtime">
+<h1>Show time below:</h1>
+</div>
+<input type="button" value="現在時間を表示する" onclick="getNow()" />
+
+<hr>
+<h1>Codes I learned</h1>
+- ボタン
+<pre><code>
+＜input type ="button" value="ボタンの文字" onclick="クリック時に動くfunction()" /＞</code></pre>
+- オブジェクトのmember(=property&method)を利用するには：<br>
+①　オブジェクトを作成する<br>
+②　オブジェクト（またはオブジェクトを示す変数）.メソッド()またはプロパティ<br>
+- Date()オブジェクト
+</body>
+</html>
