@@ -1,28 +1,76 @@
 <!DOCTYPE html>
-<html land="ja">
+<html lang="ja">
 <head>
-	<title>DOM</title>
-	<link rel="stylesheet" href="css/styles.css">
-	<script type="text/javascript">
-		function add(){
+<script type="text/javascript">
 
-		}
+function add(){
+	var cars = document.getElementById("cars");
+	var elm = document.createElement("h3");
+	var txt = document.createTextNode("Tesla");
+    elm.appendChild(txt);
+    cars.appendChild(elm);
+}
 
-		function del(){
+//divの中にh3を追加する
+function add2(){
+	var cars = document.getElementById("cars");
+	var elm = document.createElement("h3");
+	var txt = document.createTextNode("Toyota");
+    elm.appendChild(txt);
+    cars.appendChild(elm);
+}
 
-		}
-	</script>
+//最後のh3を削除する
+function del(){
+	var cars = document.getElementById("cars");
+	if(cars.lastChild != null){
+		cars.removeChild(cars.lastChild);
+	}
+}
+
+//addSelectで選んだ要素を追加する
+function add3(){
+	var p = myform.addSelect.value;
+	var cars = document.getElementById("cars");
+	var elm = document.createElement("h3");
+	var txt = document.createTextNode(p);
+	elm.appendChild(txt);
+	cars.appendChild(elm); 
+}
+
+</script>
 </head>
 <body>
-	<h1>メニュー</h1>
-	 id="food">食べ物</h1>
-	<h1 id="drink">飲み物</h1>
-	<form name="myform" action="1dom.html">
-		<input type="text" name="addItem">
-		<input type="button" value="食べ物を追加" onclick="add()"/><br>
-		<input type="button" value="飲み物を追加" onclick="add()"/><br>
-		<input type="button" value="削除" onclick="del()"/><br>
-	</form>
-	<a href="index.html">目次に戻る</a>
+<h1>商品名</h1>
+<div id="cars"></div>
+<input type="button" value="Teslaの追加" onclick="add()"/><br>
+<input type="button" value="Toyotaの追加" onclick="add2()"/><br>
+<input type ="button" value="最後の要素を削除" onclick="del()"/><br>
+
+<p>
+<form name="myform">
+<select name ="addSelect">
+	<option value = "Tesla">Tesla</option>
+	<option value = "Toyota">Toyota</option>
+</select></form>
+<input type="button" value="選んだ要素の追加" onclick="add3()"/><br>
+</p>
+
+<hr>
+<h1>Codes I learned</h1>
+- formの形式：
+<pre><code>
+	&lt;form name="フォーム名"&gt;
+		&lt;select name="フォーム部品名"&gt;
+			&lt;option value="オプションの値"&gt;オプション名&lt;/option&gt;
+		&lt;/select&gt;
+	&lt;/form&gt;
+</code></pre>
+<p>- formの値を取得：フォーム名.フォーム部品名.value</p>
+- 考え方（要素を足す）：①位置を取得→②新要素を作成→③位置に新要素を追加<br>
+①　document.getElementById("id名")<br>
+②　document.createElement("createする要素")<br>
+③　上の要素.appendChild("appendするもの")<br>
+* 要素とは：&lt;要素&gt;....&lt;/要素&gt;
 </body>
 </html>
